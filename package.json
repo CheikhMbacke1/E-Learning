@@ -1,0 +1,13 @@
+{
+  "name": "codeacademy-pro",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "api:dev": "npm -w apps/api run start:dev",
+    "api:test": "npm -w apps/api test",
+    "db:migrate": "npm -w apps/api run db:migrate"
+  },
+  "version": "0.1.0"
+}
