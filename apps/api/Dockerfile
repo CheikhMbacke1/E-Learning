@@ -1,5 +1,5 @@
 # Contexte de build : racine du dépôt  (docker build -f apps/api/Dockerfile .)
-FROM node:22-slim AS build
+FROM node:25-slim AS build
 WORKDIR /repo
 COPY package.json package-lock.json ./
 COPY apps/api/package.json apps/api/
@@ -7,7 +7,7 @@ RUN npm ci
 COPY apps/api apps/api
 RUN npm -w apps/api run build && npm prune --omit=dev
 
-FROM node:22-slim
+FROM node:25-slim
 ENV NODE_ENV=production
 WORKDIR /repo
 COPY --from=build /repo/node_modules node_modules
